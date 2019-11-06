@@ -5,6 +5,7 @@
  */
 package Final;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,10 +70,20 @@ public class login extends javax.swing.JFrame {
                 usuarioActionPerformed(evt);
             }
         });
+        usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usuarioKeyPressed(evt);
+            }
+        });
 
         contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñaActionPerformed(evt);
+            }
+        });
+        contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                contraseñaKeyPressed(evt);
             }
         });
 
@@ -144,6 +155,9 @@ public class login extends javax.swing.JFrame {
         if(nombre.isEmpty() || password.isEmpty() ){
             
             JOptionPane.showMessageDialog(null,"algun campo esta vacio \nIntentelo nuevamente");
+            usuario.setText(null);
+            contraseña.setText(null);
+            usuario.requestFocus();
             
         } else{
             if(nombre.equals("admin")&& password.equals("admin")){
@@ -153,6 +167,9 @@ public class login extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "Contraseña y/o Usuarios incorrectos");
+                usuario.setText(null);
+            contraseña.setText(null);
+            usuario.requestFocus();
             }
         }
         
@@ -163,6 +180,21 @@ public class login extends javax.swing.JFrame {
         
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
+
+    private void usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyPressed
+        // TODO add your handling code here:
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
+            contraseña.requestFocus();
+        }
+    }//GEN-LAST:event_usuarioKeyPressed
+
+    private void contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseñaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_ENTER){
+            ingresar.requestFocus();
+            ingresar.doClick();
+        }
+    }//GEN-LAST:event_contraseñaKeyPressed
 
     /**
      * @param args the command line arguments
