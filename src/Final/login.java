@@ -163,6 +163,7 @@ public class login extends javax.swing.JFrame {
             if(nombre.equals("admin")&& password.equals("admin")){
                menu menux = new menu();
                menux.setVisible(true);
+               menux.setLocationRelativeTo(null);
                this.dispose();
             }
             else{

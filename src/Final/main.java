@@ -12,10 +12,8 @@ public class main {
     
     public static void main(String [] sqrt){
         login ventana1 = new login();
-        menu ventanamenu = new menu();
         ventana1.setVisible(true);
         ventana1.setLocationRelativeTo(null);
-        ventanamenu.setLocationRelativeTo(null);
         
     }
     
